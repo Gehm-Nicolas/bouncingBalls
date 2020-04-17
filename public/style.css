@@ -1,0 +1,27 @@
+html, body {
+    margin: 0;
+}
+  
+html {
+  font-family: 'Fredoka One', cursive;
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  height: inherit;
+}
+
+h1 {
+  font-size: 5rem;
+  letter-spacing: -1px;
+
+  position: absolute;
+  margin: 0 50% 0 0;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: center;
+
+  text-shadow: 0 0 4px rgb(51, 51, 51);
+}
