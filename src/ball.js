@@ -38,4 +38,20 @@ export default class Ball {
         this.x += this.velX;
         this.y += this.velY;
     }
+
+    collisionDetect(balls) {
+        for (let j = 0; j < balls.length; j++) {
+            if (!(this === balls[j])) {
+              const dx = this.x - balls[j].x;
+              const dy = this.y - balls[j].y;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+        
+              if (distance < this.radius + balls[j].radius) {
+                return balls[j];
+              }else{
+                  return false;
+              }
+            }
+        }
+    }
 }
