@@ -16,8 +16,8 @@ function random(min, max){
 // ball's array
 let balls = [];
 
-while (balls.length < 25) {
-    let radius = random(10,20);
+while (balls.length < 5) {
+    let radius = random(50,50);
     let ball = new Ball(
         /*ball position always drawn at least one ball width
         away from the edge of the canvas, to avoid drawing errors*/
@@ -35,12 +35,17 @@ while (balls.length < 25) {
 
 // control loop
 function loop(){
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.25)';
+    ctx.fillStyle = 'rgba(255, 255, 255, 1.25)';
     ctx.fillRect(0, 0, width, height);
 
     for(let i = 0; i < balls.length; i++){
         balls[i].draw();
+        let ball = balls[i].collisionDetect(balls);
+        if(ball){
+            balls[i].color = ball.color = `rgb( ${random(0,255)}, ${random(0,255)}, ${random(0,255)} )`;
+        }
         balls[i].update();
+        
     }
 
 
