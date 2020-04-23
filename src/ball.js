@@ -1,12 +1,10 @@
 "use strict";
 
-export default class Ball {
+import Shape from './shape.js';
+
+export default class Ball extends Shape{
     constructor(ctx, x = 0, y = 0, velX = 1, velY = 1, color = "blue", radius = 4){
-        this.ctx = ctx;
-        this.x = x;
-        this.y = y;
-        this.velX = velX;
-        this.velY = velY;
+        super(ctx, x, y, velX, velY);
         this.color = color;
         this.radius = radius;
     }
@@ -24,14 +22,14 @@ export default class Ball {
         if ((this.x + this.radius) >= window.innerWidth) {
             this.velX = -(this.velX);
         }
-        if ((this.x + this.radius) <= 0) {
+        if ((this.x - this.radius) <= 0) {
             this.velX = -(this.velX);
         }
 
         if ((this.y + this.radius) >= window.innerHeight){
             this.velY = -(this.velY);
         }
-        if ((this.y + this.radius) <= 0){
+        if ((this.y - this.radius) <= 0){
             this.velY = -(this.velY);
         }
 
